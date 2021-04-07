@@ -64,6 +64,11 @@ def serializer(single_prediciton):
 ###### ROUTES / API's OF THE BACKEND #######
 ###################################################
 
+#DEFAULT STATIC URL LOCATED IN THE BUILD DIRECTORY
+@app.route('/')
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
+
 #API FOR ALL ITEMS
 @app.route('/api', methods=['GET'])
 def index():
