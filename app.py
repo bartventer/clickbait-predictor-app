@@ -3,8 +3,6 @@
 ###################################################
 
 from flask import Flask, send_from_directory, request, jsonify, json, redirect, url_for
-from flask_restful import Api, Resource, reqparse
-from api.ClickBaitApiHandler import ClickBaitApiHandler
 from machineLearning.Images import Images
 from machineLearning.clickbait import ClickBaitModel
 import numpy as np 
