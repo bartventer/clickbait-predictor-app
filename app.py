@@ -18,7 +18,7 @@ import joblib
 ###################################################
 ######CREATING AND CONFIGURING THE FLASK APP#######
 ###################################################
-app = Flask(__name__,static_folder='client/build',static_url_path='')
+app = Flask(__name__,static_folder='client/build',static_url_path='/')
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 
 ###################################################
@@ -62,6 +62,11 @@ def serializer(single_prediciton):
 ###################################################
 ###### ROUTES / API's OF THE BACKEND #######
 ###################################################
+
+#DEFAULT STATIC URL LOCATED IN THE BUILD DIRECTORY
+@app.route('/')
+def home():
+    return app.send_static_file('index.html')
 
 #API FOR ALL ITEMS
 @app.route('/api', methods=['GET'])
