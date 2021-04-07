@@ -18,7 +18,7 @@ import joblib
 ###################################################
 ######CREATING AND CONFIGURING THE FLASK APP#######
 ###################################################
-app = Flask(__name__)
+app = Flask(__name__,static_folder='client/build',static_url_path='')
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 
 ###################################################
