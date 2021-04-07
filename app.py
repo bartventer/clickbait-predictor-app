@@ -20,7 +20,6 @@ import joblib
 ######CREATING AND CONFIGURING THE FLASK APP#######
 ###################################################
 app = Flask(__name__,static_folder='client/build',static_url_path='')
-cors=CORS(app)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 
 ###################################################
@@ -72,13 +71,11 @@ def serve():
 
 #API FOR ALL ITEMS
 @app.route('/api', methods=['GET'])
-@cross_origin()
 def index():
     return jsonify([*map(serializer, request_history)])
 
 #API TO MAKE PREDICTION WITH TRAINED MODEL
 @app.route('/api/predict', methods=['POST'])
-@cross_origin()
 def predict():
     try:
         request_data = json.loads(request.data)  #convert to python dictionary
@@ -102,7 +99,6 @@ def predict():
 
 #API TO DELETE AN ITEM
 @app.route('/api/delete', methods=['POST'])
-@cross_origin()
 def delete():
     try:
         request_data = json.loads(request.data)  #convert to python dictionary
