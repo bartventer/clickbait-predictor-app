@@ -16,7 +16,7 @@ function App(){
     const [prediction, setPrediction]=useState('');
 
     useEffect(() => {
-        fetch('https://clickbait-predictor.herokuapp.com/api').then(response => {
+        fetch('/api').then(response => {
             if(response.ok){
                 return response.json()
             }
@@ -28,7 +28,7 @@ function App(){
     }
 
     function handleFormSubmit(){
-        fetch('https://clickbait-predictor.herokuapp.com/api/predict', {
+        fetch('/api/predict', {
             method: 'POST',
             body: JSON.stringify({
                 title:prediction
@@ -45,7 +45,7 @@ function App(){
         }
 
     function getLatestOutcomes(){
-        fetch('https://clickbait-predictor.herokuapp.com/api').then(response => {
+        fetch('/api').then(response => {
             if(response.ok){
                 return response.json()
             }
