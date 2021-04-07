@@ -24,7 +24,7 @@ app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ###################################################
 # LOADING THE TRAINED MODEL AND SCALER OBJECT
 ###################################################
-loaded_model = joblib.load("./machineLearning/model.pkl")
+loaded_model = joblib.load("./machineLearning/model.pkl.icloud")
 loaded_scaler = joblib.load("./machineLearning/scaler.pkl")
 
 ###################################################
