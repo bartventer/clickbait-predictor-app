@@ -3,6 +3,7 @@
 ###################################################
 
 from flask import Flask, send_from_directory, request, jsonify, json, redirect, url_for
+from flask_cors import CORS, cross_origin
 from machineLearning.Images import Images
 from machineLearning.clickbait import ClickBaitModel
 import numpy as np 
@@ -18,7 +19,8 @@ import joblib
 ###################################################
 ######CREATING AND CONFIGURING THE FLASK APP#######
 ###################################################
-app = Flask(__name__,static_folder='client/build/',static_url_path='/')
+app = Flask(__name__,static_folder='client/build',static_url_path='')
+cors=CORS(app)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 
 ###################################################
@@ -65,16 +67,18 @@ def serializer(single_prediciton):
 
 #DEFAULT STATIC URL LOCATED IN THE BUILD DIRECTORY
 @app.route('/')
-def home():
-    return app.send_static_file('index.html')
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
 
 #API FOR ALL ITEMS
 @app.route('/api', methods=['GET'])
+@cross_origin()
 def index():
     return jsonify([*map(serializer, request_history)])
 
 #API TO MAKE PREDICTION WITH TRAINED MODEL
 @app.route('/api/predict', methods=['POST'])
+@cross_origin()
 def predict():
     try:
         request_data = json.loads(request.data)  #convert to python dictionary
@@ -98,6 +102,7 @@ def predict():
 
 #API TO DELETE AN ITEM
 @app.route('/api/delete', methods=['POST'])
+@cross_origin()
 def delete():
     try:
         request_data = json.loads(request.data)  #convert to python dictionary
@@ -117,4 +122,4 @@ def delete():
 # RUN SCRIPT
 ###################################################
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 5000)
+    app.run(host = '0.0.0.0')
