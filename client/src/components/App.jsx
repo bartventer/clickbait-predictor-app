@@ -24,7 +24,7 @@ function App(){
     },[])
 
     function handleFormChange(inputValue){
-        setPrediction(inputValue)
+        setPrediction(inputValue);
     }
 
     function handleFormSubmit(){
@@ -38,9 +38,9 @@ function App(){
                 }
         }).then(response => response.json())
         .then(message => {
-            console.log(message)
-            setPrediction('')
-            getLatestOutcomes()
+            console.log(message);
+            setPrediction('');
+            getLatestOutcomes();
             })
         }
 
@@ -64,8 +64,8 @@ function App(){
                 }
         }).then(response => response.json())
         .then(message => {
-            console.log(message)
-            getLatestOutcomes()
+            console.log(message);
+            getLatestOutcomes();
             })
         }
 
