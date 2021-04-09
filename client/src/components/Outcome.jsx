@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -58,10 +58,13 @@ function Outcome(props) {
 
   const featuredItems = [0,3,9,11,17];
 
+  const [index, setIndex] = useState('');
+
   function handleDelete(event){
-    var item_id = event.target.value;
-    console.log("Item ID = " + item_id);
-    props.onDelete(item_id);
+    const item_id = event.target.value;
+    setIndex(item_id)
+    console.log("Item ID = " + index);
+    props.onDelete(index);
   }
 
   return (

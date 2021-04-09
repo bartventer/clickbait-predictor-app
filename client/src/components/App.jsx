@@ -78,6 +78,7 @@ function App(){
             <Outcome
               outcomeList={outcome}
               onDelete={deleteOutcome}
+              fetchStatus={fetchInProgress}
             />
 
           <Footer/>
