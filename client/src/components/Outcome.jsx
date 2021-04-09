@@ -58,13 +58,6 @@ function Outcome(props) {
 
   const featuredItems = [0,3,9,11,17];
 
-  function handleDelete(event){
-    let item_id = event.target.value;
-    item_id = parseInt(item_id)
-    console.log("Item ID to delete = " + item_id);
-    props.onDelete(item_id);
-  }
-
   return (
     <div className={classes.root}>
       <GridList cellHeight={200} spacing={1} className={classes.gridList}>
@@ -77,7 +70,7 @@ function Outcome(props) {
               titlePosition="top"
               actionIcon={
                 <IconButton aria-label={`star ${outcomeItem.prediction}`} className={classes.icon}>
-                  { defualtItems.includes(outcomeItem.prediction)? <StarBorderIcon/>:<DeleteForeverIcon onClick={handleDelete} value={index}/>}
+                  { defualtItems.includes(outcomeItem.prediction)? <StarBorderIcon/>:<DeleteForeverIcon onClick={ () => props.onDelete(index) } value={index}/>}
                 </IconButton>
               }
               actionPosition="left"
