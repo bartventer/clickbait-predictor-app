@@ -55,6 +55,8 @@ function AdvancedGridList(props) {
   const classes = useStyles();
 
   const defualtItems = ["“How to Achieve Results Using This One Weird Trick”","“You'll Never Believe This _________ “","“They Didn't Know _________ . Then This Happened …”"];
+  
+  const featuredItems = [0,3,9,11,17];
 
   function handleDelete(event){
     props.onDelete(event.target.value)
@@ -64,14 +66,14 @@ function AdvancedGridList(props) {
     <div className={classes.root}>
       <GridList cellHeight={200} spacing={1} className={classes.gridList}>
         {props.outcomeList.map((outcomeItem, index) => (
-          <GridListTile key={index} cols={index in [0,3,9,11,17] ? 2 : 1} rows={index in [0,3,9,11,17] ? 2 : 1}>
+          <GridListTile key={index} cols={featuredItems.includes(index) ? 2 : 1} rows={featuredItems.includes(index) ? 2 : 1}>
             <img src={outcomeItem.imgUrl} alt={outcomeItem.result} />
             <GridListTileBar
               title={outcomeItem.prediction}
               titlePosition="top"
               actionIcon={
                 <IconButton aria-label={`star ${outcomeItem.prediction}`} className={classes.icon}>
-                  { outcomeItem.prediction in defualtItems? <StarBorderIcon value={index}/>:<DeleteForeverIcon onClick={handleDelete} value={index}/>}
+                  { defualtItems.includes(outcomeItem.prediction)? <StarBorderIcon value={index}/>:<DeleteForeverIcon onClick={handleDelete} value={index}/>}
                 </IconButton>
               }
               actionPosition="left"
