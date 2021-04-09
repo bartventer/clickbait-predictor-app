@@ -102,10 +102,10 @@ def predict():
 def delete():
     try:
         request_data = json.loads(request.data)  #convert to python dictionary
-        item_index=int(request_data['id_num'])
-        request_history.pop(item_index)
+        item_index=request_data['id_num']
+        request_history.pop(int(item_index))
         return jsonify({
-            "statusCode": 200,
+            "statusCode": 204,
             "status": "Item deleted",
             "result": "List has been updated"})
     except Exception as error:
