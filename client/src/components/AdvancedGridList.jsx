@@ -53,13 +53,14 @@ function AdvancedGridList(props) {
   }));
 
   const classes = useStyles();
-
+  
   const defualtItems = ["“How to Achieve Results Using This One Weird Trick”","“You'll Never Believe This _________ “","“They Didn't Know _________ . Then This Happened …”"];
 
   const featuredItems = [0,3,9,11,17];
 
   function handleDelete(event){
-    props.onDelete(event.target.value)
+    var item_id = event.target.value;
+    props.onDelete(item_id);
   }
 
   return (
@@ -74,7 +75,7 @@ function AdvancedGridList(props) {
               titlePosition="top"
               actionIcon={
                 <IconButton aria-label={`star ${outcomeItem.prediction}`} className={classes.icon}>
-                  { defualtItems.includes(outcomeItem.prediction)? <StarBorderIcon value={index}/>:<DeleteForeverIcon onClick={handleDelete} value={index}/>}
+                  { defualtItems.includes(outcomeItem.prediction)? <StarBorderIcon/>:<DeleteForeverIcon onClick={handleDelete} value={index}/>}
                 </IconButton>
               }
               actionPosition="left"
