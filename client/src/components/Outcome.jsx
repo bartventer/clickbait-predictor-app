@@ -60,6 +60,7 @@ function Outcome(props) {
 
   function handleDelete(event){
     var item_id = event.target.value;
+    console.log("Item ID = " + item_id);
     props.onDelete(item_id);
   }
 
