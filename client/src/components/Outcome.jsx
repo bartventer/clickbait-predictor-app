@@ -58,13 +58,11 @@ function Outcome(props) {
 
   const featuredItems = [0,3,9,11,17];
 
-  const [index, setIndex] = useState('');
-
   function handleDelete(event){
-    const item_id = event.target.value;
-    setIndex(item_id)
-    console.log("Item ID = " + index);
-    props.onDelete(index);
+    let item_id = event.target.value;
+    item_id = parseInt(item_id)
+    console.log("Item ID to delete = " + item_id);
+    props.onDelete(item_id);
   }
 
   return (
