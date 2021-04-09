@@ -1,5 +1,6 @@
 import React from 'react';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import CircularIndeterminate from './CircularIndeterminate';
 
 function Form(props){
 
@@ -18,6 +19,7 @@ function Form(props){
             <button type="submit">
                 <RadioButtonCheckedIcon/>
             </button>
+            {props.fetchStatus && <CircularIndeterminate/>}
     </form>
 }
 

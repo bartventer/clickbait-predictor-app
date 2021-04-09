@@ -55,7 +55,7 @@ function AdvancedGridList(props) {
   const classes = useStyles();
 
   const defualtItems = ["“How to Achieve Results Using This One Weird Trick”","“You'll Never Believe This _________ “","“They Didn't Know _________ . Then This Happened …”"];
-  
+
   const featuredItems = [0,3,9,11,17];
 
   function handleDelete(event){
@@ -70,6 +70,7 @@ function AdvancedGridList(props) {
             <img src={outcomeItem.imgUrl} alt={outcomeItem.result} />
             <GridListTileBar
               title={outcomeItem.prediction}
+              subtitle={outcomeItem.result}
               titlePosition="top"
               actionIcon={
                 <IconButton aria-label={`star ${outcomeItem.prediction}`} className={classes.icon}>
