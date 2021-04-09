@@ -25,7 +25,7 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
  *   },
  * ];
  */
-function AdvancedGridList(props) {
+function Outcome(props) {
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -88,4 +88,4 @@ function AdvancedGridList(props) {
   );
 }
 
-export default AdvancedGridList;
+export default Outcome;

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Form from './Form';
 import Header from './Header';
 import Footer from './Footer';
-import AdvancedGridList from "./AdvancedGridList";
+import Outcome from "./Outcome";
 
 function App(){
 
@@ -75,7 +75,7 @@ function App(){
             {/* <h3 className="guidance"></h3> */}
             <Form userInput={prediction} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit} fetchStatus={fetchInProgress}/>
             
-            <AdvancedGridList
+            <Outcome
               outcomeList={outcome}
               onDelete={deleteOutcome}
             />
