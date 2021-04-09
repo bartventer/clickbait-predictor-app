@@ -98,12 +98,13 @@ def predict():
             "result": str(error)}) 
 
 #API TO DELETE AN ITEM
-@app.route('/api/delete/<int:id_num>', methods=['POST'])
+@app.route('/api/delete', methods=['POST'])
 def delete():
     try:
         request_data = json.loads(request.data)  #convert to python dictionary
         item_index=request_data['id_num']
-        request_history.pop(item_index)
+        print(item_index)
+        request_history.pop(int(item_index))
         return jsonify({
             "statusCode": 204,
             "status": "Item deleted",

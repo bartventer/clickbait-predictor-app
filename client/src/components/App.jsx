@@ -53,8 +53,9 @@ function App(){
     }
 
     function deleteOutcome(id){
+        console.log(`Main Function: ID = ${id}`)
         setFetchInProgress(true);
-        fetch(`api/delete/${id}`, {
+        fetch(`api/delete`, {
             method: 'POST',
             body: JSON.stringify({
                 id_num:id
