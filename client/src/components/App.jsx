@@ -3,7 +3,6 @@ import Form from './Form';
 import Header from './Header';
 import Footer from './Footer';
 import AdvancedGridList from "./AdvancedGridList";
-import { usePromiseTracker } from "react-promise-tracker";
 
 function App(){
 
@@ -25,8 +24,6 @@ function App(){
         setPrediction(inputValue);
     }
 
-    const { promiseInProgress } = usePromiseTracker();
-
     function handleFormSubmit(){
         setFetchInProgress(true);
         fetch('/api/predict', {
@@ -39,10 +36,10 @@ function App(){
                 }
         }).then(response => response.json())
         .then(message => {
-            setInProgress(false);
             console.log(message);
             setPrediction('');
             getLatestOutcomes();
+            setFetchInProgress(false);
             })
         }
 
@@ -67,9 +64,9 @@ function App(){
                 }
         }).then(response => response.json())
         .then(message => {
-            setFetchInProgress(false);
             console.log(message);
             getLatestOutcomes();
+            setFetchInProgress(false);
             })
         }
 
