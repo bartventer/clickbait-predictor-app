@@ -64,7 +64,7 @@ function AdvancedGridList(props) {
     <div className={classes.root}>
       <GridList cellHeight={200} spacing={1} className={classes.gridList}>
         {props.outcomeList.map((outcomeItem, index) => (
-          <GridListTile key={index} cols={tile.featured ? 2 : 1} rows={tile.featured ? 2 : 1}>
+          <GridListTile key={index} cols={index in [0,3,9,11,17] ? 2 : 1} rows={index in [0,3,9,11,17] ? 2 : 1}>
             <img src={outcomeItem.imgUrl} alt={outcomeItem.result} />
             <GridListTileBar
               title={outcomeItem.prediction}
