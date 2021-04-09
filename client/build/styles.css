@@ -7,7 +7,7 @@
     font-family: "Montserrat", sans-serif;
   }
   body {
-    background: #eee;
+    /* background: #eee; */
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
     padding: 0 16px;
   }
@@ -88,14 +88,14 @@
     color: #000000;
   }
 
- .guidance {
+ /* .guidance {
     position: relative;
     width: 480px;
     padding: 15px;
     margin: 30px auto 30px auto;
     text-align: center;
     color: rgb(151, 145, 145);
-  }
+  } */
   
   
 

@@ -14,7 +14,7 @@ function Form(props){
     }
 
     return <form onSubmit={handleSubmit}>
-            <input type="text-area" placeholder="Enter the article name here" required value={props.userInput}onChange={handleChange}></input>
+            <input type="text-area" placeholder="Enter the article name here" required minLength="6" value={props.userInput}onChange={handleChange}></input>
             <button type="submit">
                 <RadioButtonCheckedIcon/>
             </button>

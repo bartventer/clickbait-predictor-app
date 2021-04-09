@@ -66,7 +66,7 @@ function App(){
 
     return <div>
             <Header/>
-            <h3 className="guidance">There's too much clickbait going around. Simply enter the name of the article and the site will predict whether the piece is clickbait or not. We'll generate an image with your result.</h3>
+            {/* <h3 className="guidance"></h3> */}
             <Form userInput={prediction} onFormChange={handleFormChange} onFormSubmit={handleFormSubmit}/>
             
             <AdvancedGridList

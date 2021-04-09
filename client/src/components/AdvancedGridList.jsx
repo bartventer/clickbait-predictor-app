@@ -57,7 +57,7 @@ function AdvancedGridList(props) {
   const defualtItems = ["“How to Achieve Results Using This One Weird Trick”","“You'll Never Believe This _________ “","“They Didn't Know _________ . Then This Happened …”"];
 
   function handleDelete(event){
-    props.deleteOutcome(event.target.value)
+    props.onDelete(event.target.value)
   }
 
   return (
