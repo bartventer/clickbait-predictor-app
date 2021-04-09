@@ -3,6 +3,7 @@ import Form from './Form';
 import Header from './Header';
 import Footer from './Footer';
 import Outcome from "./Outcome";
+import {useHistory} from 'react-router-dom';
 
 function App(){
 
@@ -54,7 +55,8 @@ function App(){
 
     function deleteOutcome(id){
         setFetchInProgress(true);
-        fetch('api/delete', {
+        const history= useHistory();
+        fetch(`api/delete/${id}`, {
             method: 'POST',
             body: JSON.stringify({
                 id_num:id
@@ -67,6 +69,7 @@ function App(){
             console.log(message);
             getLatestOutcomes();
             setFetchInProgress(false);
+            history.push('/');
             })
         }
 
