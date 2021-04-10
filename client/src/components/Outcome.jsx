@@ -70,7 +70,8 @@ function Outcome(props) {
               titlePosition="top"
               actionIcon={
                 <IconButton aria-label={`star ${outcomeItem.prediction}`} className={classes.icon}>
-                  { defualtItems.includes(outcomeItem.prediction)? <StarBorderIcon/>:<DeleteForeverIcon onClick={ () => props.onDelete(index) } value={index}/>}
+                  <StarBorderIcon/>
+                  {/* { defualtItems.includes(outcomeItem.prediction)? <StarBorderIcon/>:<DeleteForeverIcon onClick={ () => props.onDelete(index) } value={index}/>} */}
                 </IconButton>
               }
               actionPosition="left"
