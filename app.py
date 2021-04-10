@@ -103,8 +103,8 @@ def delete():
     try:
         request_data = json.loads(request.data)  #convert to python dictionary
         item_index=request_data['id_num']
-        print(item_index)
-        request_history.pop(int(item_index))
+        index_position = len(request_history)-int(item_index)-1
+        request_history.pop(index_position)
         return jsonify({
             "statusCode": 204,
             "status": "Item deleted",

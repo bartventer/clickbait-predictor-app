@@ -36,7 +36,6 @@ function App(){
                 }
         }).then(response => response.json())
         .then(message => {
-            console.log(message);
             setPrediction('');
             getLatestOutcomes();
             setFetchInProgress(false);
@@ -53,7 +52,6 @@ function App(){
     }
 
     function deleteOutcome(id){
-        console.log(`Main Function: ID = ${id}`)
         setFetchInProgress(true);
         fetch(`api/delete`, {
             method: 'POST',
@@ -65,7 +63,6 @@ function App(){
                 }
         }).then(response => response.json())
         .then(message => {
-            console.log(message);
             getLatestOutcomes();
             setFetchInProgress(false);
             })
